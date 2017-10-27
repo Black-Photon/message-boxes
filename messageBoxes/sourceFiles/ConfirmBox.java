@@ -1,3 +1,5 @@
+package sourceFiles;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -18,7 +20,7 @@ public class ConfirmBox extends messageBoxes {
 	}
 
 	public ConfirmBox(String text, int width, String title){
-		super(text, width, title);
+		super(text, width, title,"","");
 		currentObject = this;
 	}
 
@@ -29,7 +31,7 @@ public class ConfirmBox extends messageBoxes {
 	public boolean getAnswer() {
 		yes = false;
 		stage = new Stage();
-		MessageBoxesMain.createWindow("ConfirmBox.fxml", stage, title);
+		//MessageBoxesMain.createWindow("sourceFiles.ConfirmBox.fxml", stage, title);
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.showAndWait();
 		return yes;

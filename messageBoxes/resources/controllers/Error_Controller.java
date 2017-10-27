@@ -1,30 +1,31 @@
 package resources.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import messageBoxes.Error;
+public class Error_Controller extends Message_Controller{
+	//VARIABLES --------------------------------------------------------------------------------------------------------
 
-public class Error_Controller implements Initializable{
-	@FXML
-	private BorderPane borderPane;
+	//FXML Variables
+	@FXML private BorderPane borderPane;
+	@FXML private Label label;
 
-	@FXML
-	private Label label;
+	//METHODS ----------------------------------------------------------------------------------------------------------
 
-	@FXML
-	private void onOkPressed(){
-		Error.getCurrentObject().exit();
+	//Initialization
+	@Override public void initialize(URL location, ResourceBundle resources) {
+		super.initialize(location, resources);
+
+		borderPane.setPrefWidth(thisObject.getWidth());
+		label.setText(thisObject.getText());
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		borderPane.setPrefWidth(Error.getCurrentObject().getWidth());
-		label.setText(Error.getCurrentObject().getText());
+	//FXML Methods
+	@FXML public void onOkPressed(){
+		thisObject.exit();
 	}
 }

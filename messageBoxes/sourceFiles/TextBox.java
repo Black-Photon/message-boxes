@@ -1,3 +1,5 @@
+package sourceFiles;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,7 +21,7 @@ public class TextBox extends messageBoxes{
 	}
 
 	public TextBox(String text, int width, String title){
-		super(text, width, title);
+		super(text, width, title,"","");
 		currentObject = this;
 	}
 
@@ -30,7 +32,7 @@ public class TextBox extends messageBoxes{
 	public String getString(){
 		writtenText = "";
 		stage = new Stage();
-		MessageBoxesMain.createWindow("TextBox.fxml", stage, title);
+		//MessageBoxesMain.createWindow("sourceFiles.TextBox.fxml", stage, title);
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.showAndWait();
 		return writtenText;
