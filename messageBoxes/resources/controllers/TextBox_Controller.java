@@ -4,26 +4,38 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import sourceFiles.TextBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TextBox_Controller implements Initializable{
-	@FXML
-	private Label title;
+public class TextBox_Controller extends Message_Controller{
+	//VARIABLES --------------------------------------------------------------------------------------------------------
 
-	@FXML
-	private TextField textBar;
+	//FXML Variables
+	@FXML private BorderPane borderPane;
+	@FXML private TextField textBar;
+	@FXML private Label title;
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		title.setText(TextBox.getCurrentObject().getText());
+
+
+	//METHODS ----------------------------------------------------------------------------------------------------------
+
+	//Initialization
+	@Override public void initialize(URL location, ResourceBundle resources) {
+		super.initialize(location, resources);
+		TextBox textBox = (TextBox) thisObject;
+		textBar.setText(textBox.getDefaultText());
+
+		borderPane.setPrefWidth(thisObject.getWidth());
+		title.setText(thisObject.getText());
 	}
 
-	@FXML
-	void onPressOk() {
-		TextBox.getCurrentObject().setWrittenText(textBar.getText());
-		TextBox.getCurrentObject().exit();
+	//FXML Methods
+	@FXML public void onOkPressed(){
+		TextBox textBox = (TextBox) thisObject;
+		textBox.setUserInput(textBar.getText());
+		textBox.exit();
 	}
 }

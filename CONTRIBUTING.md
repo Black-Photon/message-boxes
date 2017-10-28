@@ -9,7 +9,7 @@ Manual Bug Fixing:
 If you fix a bug, add a pull request explaining why you did what you did in comments or commit description
 
 Developing:
-I run using IntelliJ. Use TestClass for testing
+I run using IntelliJ. Use testFiles.TestClass for testing
 
 Formatting:
 To keep consistency, please use the following format in files:

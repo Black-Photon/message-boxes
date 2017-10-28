@@ -1,60 +1,63 @@
 package sourceFiles;
 
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Creates a box allowing the user to input text
+ */
 public class TextBox extends messageBoxes{
+	//VARIABLES --------------------------------------------------------------------------------------------------------
 
-	private static TextBox currentObject;
-	private String writtenText;
+	/**
+	 * What the user input to the box
+	 */
+	private String userInput;
+	private String defaultText;
 
+
+
+	//METHODS ----------------------------------------------------------------------------------------------------------
+
+	//Constructors
 	public TextBox() {
 		this("Enter:");
 	}
-
 	public TextBox(String text){
 		this(text, 600);
 	}
-
 	public TextBox(String text, int width){
 		this(text, width, "Text Box");
 	}
-
 	public TextBox(String text, int width, String title){
-		super(text, width, title,"","");
-		currentObject = this;
+		this(text, width, title, "");
+	}
+	public TextBox(String text, int width, String title, String defaultText){
+		super(text, width, title,"Text Box","TextBox.fxml");
+		this.defaultText = defaultText;
 	}
 
+	//Technical Methods
 	/**
 	 * Creates a new text box and returns the result
-	 * @return Text entered
+	 * @return Text entered, or null if unsuccessful
 	 */
-	public String getString(){
-		writtenText = "";
-		stage = new Stage();
-		//MessageBoxesMain.createWindow("sourceFiles.TextBox.fxml", stage, title);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.showAndWait();
-		return writtenText;
+	public String createResponseBox(){
+		showModalWindow();
+		return userInput;
 	}
 
-	public static TextBox getCurrentObject() {
-		return currentObject;
+	//Getters and Setters
+	public String getUserInput() {
+		return userInput;
 	}
-
-	/**
-	 * Ignore
-	 * @return
-	 */
-	public String getWrittenText() {
-		return writtenText;
+	public void setUserInput(String userInput) {
+		this.userInput = userInput;
 	}
-	/**
-	 * Ignore
-	 * @param writtenText
-	 */
-	public void setWrittenText(String writtenText) {
-		this.writtenText = writtenText;
+	public String getDefaultText() {
+		return defaultText;
+	}
+	public void setDefaultText(String defaultText) {
+		this.defaultText = defaultText;
 	}
 
 	public void exit(){

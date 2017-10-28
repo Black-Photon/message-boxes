@@ -1,4 +1,4 @@
-Copy this folder to whatever project you're using. Happy Developing!
+Copy this folder to whatever project you're using and then delete the testFiles folder. Happy Developing!
 
 This folder and everything in it was created by Joseph Keane. Anyone is free to use it under the MIT licence.
 All Source Code is found at https://github.com/Black-Photon/message-boxes.

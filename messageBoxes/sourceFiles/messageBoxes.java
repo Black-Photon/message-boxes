@@ -90,49 +90,55 @@ public abstract class messageBoxes {
 	}
 	/**
 	 * Set's up the window without showing it
-	 *
+	 * Passes the current object as parameters
 	 */
 	protected void createWindow(){
+		ResourceBundle resources = new ResourceBundle() {
+			/**
+			 * Should be "this" for this object
+			 * @param key What data to retrieve
+			 * @return The Object relating to the key
+			 */
+			@Override
+			protected Object handleGetObject(String key) {
+				if(key.equals("this")){
+					return thisObject;
+				}
+				return null;
+			}
+
+			@Override
+			public Enumeration<String> getKeys() {
+				Enumeration<String> enumeration = new Enumeration<String>() {
+					private String[] elements = {"this"};
+					private int count = 0;
+
+					@Override
+					public boolean hasMoreElements() {
+						if(count<elements.length) return true;
+						return false;
+					}
+
+					@Override
+					public String nextElement() {
+						count++;
+						return elements[count-1];
+					}
+				};
+				return enumeration;
+			}
+		};      //Basically contains this object in a convoluted way. Supports extra info
+		createWindow(resources);
+	}
+	/**
+	 * Set's up the window without showing it
+	 * @param resources Resources to pass
+	 */
+	protected void createWindow(ResourceBundle resources){
 		try {
 			//Set's scene to that given by a FXML file and set's the title
 			URL classLocation = getClass().getClassLoader().getResource("resources/fxml/"+fileName);
 			if(classLocation==null) throw new NullPointerException("FXML file could not be found");
-			//Basically contains this object in a convoluted way. Supports extra info
-			ResourceBundle resources = new ResourceBundle() {
-				/**
-				 * Should be "this" for this object
-				 * @param key What data to retrieve
-				 * @return The Object relating to the key
-				 */
-				@Override
-				protected Object handleGetObject(String key) {
-					if(key.equals("this")){
-						return thisObject;
-					}
-					return null;
-				}
-
-				@Override
-				public Enumeration<String> getKeys() {
-					Enumeration<String> enumeration = new Enumeration<String>() {
-						private String[] elements = {"this"};
-						private int count = 0;
-
-						@Override
-						public boolean hasMoreElements() {
-							if(count<elements.length) return true;
-							return false;
-						}
-
-						@Override
-						public String nextElement() {
-							count++;
-							return elements[count-1];
-						}
-					};
-					return enumeration;
-				}
-			};
 			Parent root = FXMLLoader.load(classLocation, resources);
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
