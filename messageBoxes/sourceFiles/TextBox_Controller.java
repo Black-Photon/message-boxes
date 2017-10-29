@@ -1,11 +1,9 @@
-package resources.controllers;
+package sourceFiles;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import sourceFiles.TextBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;

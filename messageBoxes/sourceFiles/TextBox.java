@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 public class TextBox extends messageBoxes{
 	//VARIABLES --------------------------------------------------------------------------------------------------------
 
+	//Global
 	/**
 	 * What the user input to the box
 	 */
@@ -47,20 +48,16 @@ public class TextBox extends messageBoxes{
 	}
 
 	//Getters and Setters
-	public String getUserInput() {
+	String getUserInput() {
 		return userInput;
 	}
-	public void setUserInput(String userInput) {
+	void setUserInput(String userInput) {
 		this.userInput = userInput;
 	}
-	public String getDefaultText() {
+	String getDefaultText() {
 		return defaultText;
 	}
-	public void setDefaultText(String defaultText) {
+	void setDefaultText(String defaultText) {
 		this.defaultText = defaultText;
-	}
-
-	public void exit(){
-		stage.close();
 	}
 }

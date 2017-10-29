@@ -1,4 +1,4 @@
-package resources.controllers;
+package sourceFiles;
 
 import javafx.fxml.Initializable;
 import sourceFiles.messageBoxes;
@@ -7,13 +7,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Superclass for all Message Box controllers
+ * Superclass for all Message Box controllers<br/>
+ *
+ * Files in same package as it allows package-private, making some internal methods invisible
  */
 public abstract class Message_Controller implements Initializable{
 	//VARIABLES --------------------------------------------------------------------------------------------------------
 
 	//Main Variables
 	protected messageBoxes thisObject;
+
+
 
 	//METHODS ----------------------------------------------------------------------------------------------------------
 

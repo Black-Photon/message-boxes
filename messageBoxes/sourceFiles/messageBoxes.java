@@ -156,28 +156,28 @@ public abstract class messageBoxes {
 	}
 
 	//Getters and Setters
-	public double getWidth() {
+	double getWidth() {
 		return width;
 	}
-	public void setWidth(double width) {
+	void setWidth(double width) {
 		this.width = width;
 	}
-	public String getText() {
+	String getText() {
 		return text;
 	}
-	public void setText(String text) {
+	void setText(String text) {
 		this.text = text;
 	}
-	public String getTitle() {
+	String getTitle() {
 		return title;
 	}
-	public void setTitle(String title) {
+	void setTitle(String title) {
 		this.title = title;
 	}
-	public Stage getStage() {
+	Stage getStage() {
 		return stage;
 	}
-	public void setStage(Stage stage) {
+	void setStage(Stage stage) {
 		this.stage = stage;
 	}
 }

@@ -1,55 +1,52 @@
 package sourceFiles;
 
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-
+/**
+ * Creates a response/no response box
+ */
 public class ConfirmBox extends messageBoxes {
-	private static ConfirmBox currentObject;
-	private boolean yes;
+	//VARIABLES --------------------------------------------------------------------------------------------------------
 
+	//Global
+	/**
+	 * User response
+	 * True for Yes
+	 * False for No
+	 */
+	private boolean response;
+
+
+
+	//METHODS ----------------------------------------------------------------------------------------------------------
+
+	//Constructors
 	public ConfirmBox() {
 		this("Please choose an option");
 	}
-
 	public ConfirmBox(String text){
 		this(text, 400);
 	}
-
 	public ConfirmBox(String text, int width){
 		this(text, width, "Confirm");
 	}
-
 	public ConfirmBox(String text, int width, String title){
-		super(text, width, title,"","");
-		currentObject = this;
+		super(text, width, title,"Confirm Box","ConfirmBox.fxml");
 	}
 
+	//Technical Methods
 	/**
 	 *
-	 * @return True if yes pressed, False is no pressed
+	 * @return True if response pressed, False is no pressed
 	 */
-	public boolean getAnswer() {
-		yes = false;
-		stage = new Stage();
-		//MessageBoxesMain.createWindow("sourceFiles.ConfirmBox.fxml", stage, title);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.showAndWait();
-		return yes;
+	public boolean createResponseBox() {
+		showModalWindow();
+		return response;
 	}
 
-	public static ConfirmBox getCurrentObject() {
-		return currentObject;
+	//Getters and Setters
+	boolean getResponse() {
+		return response;
 	}
-
-	public boolean isYes() {
-		return yes;
-	}
-
-	public void setYes(boolean yes) {
-		this.yes = yes;
-	}
-
-	public void exit(){
-		stage.close();
+	void setResponse(boolean response) {
+		this.response = response;
 	}
 }

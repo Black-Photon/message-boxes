@@ -27,7 +27,7 @@ public class Test_Controller {
 	}
 	@FXML void onPressThird() {
 		ConfirmBox confirmBox = new ConfirmBox("Would you like to press yes?", 600, "Title???");
-		//TODO result.setText(confirmBox.getText());
+		result.setText(Boolean.toString(confirmBox.createResponseBox()));
 	}
 	@FXML void onPressFourth() {
 
